@@ -11,4 +11,6 @@ extension Color {
     static let primaryColor = Color("AppPrimary")
 }
 
-
+extension Color {
+    static let toggleColor = Color("ToggleCard")
+}

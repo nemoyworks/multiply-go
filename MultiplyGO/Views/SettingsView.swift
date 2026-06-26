@@ -17,31 +17,60 @@ struct SettingsView: View {
             ZStack {
                 Color.appPrimary
                     .ignoresSafeArea()
+                
                 VStack {
+                    Text("SETTINGS")
+                        .padding(30)
+                        .font(.primary(30))
                     
-                    VStack {
-                        Text("SETTINGS")
-                            .font(.primary(40))
-                    }
-                    Spacer()
-                    VStack {
-                        Toggle("Sound", isOn: $sound)
-                            .font(.primary(18))
-                        Toggle("Haptics", isOn: $haptics)
-                            .font(.primary(18))
-                    }
-                    Spacer()
-                }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button {
+                    VStack(spacing: 15) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 20)
+                                .frame(width: 400, height: 70)
+                                .foregroundColor(Color.white)
                             
-                        } label: {
-                            Image("ReturnButton")
+                            Toggle("SOUND", systemImage: "speaker.wave.3", isOn: $sound)
+                                .frame(maxWidth: 380)
+                                .font(.primary(20))
                         }
-                        .buttonStyle(.plain)
+                        
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 20)
+                                .frame(width: 400, height: 70)
+                                .foregroundColor(Color.white)
+                            
+                            Toggle("MUSIC", systemImage: "music.note", isOn: $sound)
+                                .frame(maxWidth: 380)
+                                .font(.primary(20))
+                        }
+                        
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 20)
+                                .frame(width: 400, height: 70)
+                                .foregroundColor(Color.white)
+                            
+                            Toggle("HAPTICS", systemImage: "hand.tap", isOn: $sound)
+                                .frame(maxWidth: 380)
+                                .font(.primary(20))
+                        }
+                        
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 20)
+                                .frame(width: 400, height: 70)
+                                .foregroundColor(Color.white)
+                            
+                            Toggle("NOTIFICATIONS", systemImage: "bell", isOn: $sound)
+                                .frame(maxWidth: 380)
+                                .font(.primary(20))
+                        }
+                        Spacer()
                     }
                 }
+                .frame(maxWidth: 420, maxHeight: 650)
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .foregroundStyle(Color.toggleColor)
+                )
             }
         }
     }
